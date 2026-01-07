@@ -1,0 +1,315 @@
+DROP DATABASE IF EXISTS tarpetsdb;
+CREATE DATABASE tarpetsdb;
+USE tarpetsdb;
+
+-- 1. USERS TABLE
+CREATE TABLE users
+(
+    id           BIGINT AUTO_INCREMENT PRIMARY KEY,
+    full_name    VARCHAR(255),
+    email        VARCHAR(255) NOT NULL UNIQUE,
+    password     VARCHAR(255),
+    phone_number VARCHAR(255),
+    role         VARCHAR(50)
+);
+
+-- 2. PRODUCTS TABLE
+CREATE TABLE products
+(
+    id            BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name          VARCHAR(255) NOT NULL,
+    description   TEXT,
+    price         DOUBLE       NOT NULL,
+    old_price     DOUBLE,
+    is_discounted BOOLEAN DEFAULT false,
+    category      VARCHAR(50)  NOT NULL,
+    subcategory   VARCHAR(50),
+    image_url     VARCHAR(2000),
+    stock         INT     DEFAULT 0
+);
+
+-- 3. ORDERS TABLE
+CREATE TABLE orders
+(
+    id          BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id     BIGINT,
+    total_price DOUBLE,
+    created_at  DATETIME,
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+);
+
+-- 4. ORDER ITEMS TABLE
+CREATE TABLE order_items
+(
+    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
+    product_id BIGINT,
+    price      DOUBLE,
+    quantity   INT,
+    order_id   BIGINT,
+    FOREIGN KEY (order_id) REFERENCES orders (id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products (id)
+);
+
+-- 5. PETS TABLE
+CREATE TABLE pets
+(
+    id      BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name    VARCHAR(255),
+    type    VARCHAR(255),
+    user_id BIGINT,
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+);
+
+-- ==========================================
+-- 📦 LOADING PRODUCTS (SHOWCASE SET)
+-- ==========================================
+
+-- 🐱 CAT CATEGORY (16 Products)
+-- Note: Only 1 product (Royal Canin) set to TRUE for showcase. Others are FALSE.
+
+INSERT INTO products (name, price, old_price, is_discounted, category, subcategory, image_url, description, stock)
+VALUES ('Royal Canin Sensible Cat Food 2kg', 399.0, 459.0, true, 'cat', 'Adult Cat Food',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYN1jRoihyo2OVSOVcXVpSuwfxKT9XC_fZSw&s',
+        'Premium food for adult cats.', 50),
+
+       ('ProPlan Sterilised Cat Food 1.5kg', 349.0, 399.0, false, 'cat', 'Sterilised Cat Food',
+        'https://static.ticimax.cloud/cdn-cgi/image/width=-,quality=85/14166/uploads/urunresimleri/buyuk/proplan-sterilised-somonlu-yetiskin-ku-a88c04.jpg',
+        'Special content for neutered cats.', 45),
+
+       ('Whiskas Kitten Food 1kg', 189.0, NULL, false, 'cat', 'Kitten Food',
+        'https://cdn.onemars.net/sites/whiskas_tr_215_2/image/449386_detay_1675245581822.png',
+        'Balanced nutrition for kittens.', 100),
+
+       ('N&D Grain-Free Cat Food 1.5kg', 429.0, 469.0, false, 'cat', 'Adult Cat Food',
+        'https://static.ticimax.cloud/cdn-cgi/image/width=-,quality=85/14166/uploads/urunresimleri/buyuk/n--d-tahilsiz-tavuk--nar-yavru-hamile-em-0ddb.jpg',
+        'Natural, grain-free food.', 30),
+
+       ('Sheba Wet Cat Food with Chicken 85g', 29.0, NULL, false, 'cat', 'Canned Cat Food',
+        'https://productimages.hepsiburada.net/s/432/375-375/110000464863532.jpg', 'Delicious wet food.', 200),
+
+       ('Felix Wet Cat Food with Salmon 85g', 25.0, 45.0, true, 'cat', 'Canned Cat Food',
+        'https://images.migrosone.com/sanalmarket/product/41991901/41991901-9b38ce-1650x1650.jpg',
+        'Wet food for adult cats.', 150),
+
+       ('Purina Gourmet Wet Cat Food 85g', 32.0, 39.0, false, 'cat', 'Canned Cat Food',
+        'https://m.media-amazon.com/images/I/71w8YwTb2UL._AC_UF1000,1000_QL80_.jpg', 'Gourmet series wet food.', 120),
+
+       ('Pro Line Wet Cat Food with Beef 100g', 19.0, NULL, false, 'cat', 'Canned Cat Food',
+        'https://cdn03.ciceksepeti.com/cicek/kcm77786792-1/XL/proline-dana-etli-pouch-yetiskin-kedi-yas-mamasi-100-g-kcm77786792-1-69f0f6471b5840f1a9e804065e931fd3.jpg',
+        'Economic wet food.', 180),
+
+       ('Sanicat Marseille Soap Scented Cat Litter 10L', 120.0, NULL, false, 'cat', 'Cat Litter',
+        'https://productimages.hepsiburada.net/s/280/375-375/110000266911081.jpg', 'Clumping cat litter.', 80),
+
+       ('Ever Clean Extra Strong Cat Litter 10L', 249.0, 299.0, false, 'cat', 'Cat Litter',
+        'https://productimages.hepsiburada.net/s/41/375-375/10717742923826.jpg', 'Premium odor control.', 60),
+
+       ('Pet Love Bentonite Cat Litter 12L', 110.0, NULL, false, 'cat', 'Cat Litter',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJv10h7XzpjVdVdDqTJfOTbB6-_pQDo-KjFA&s',
+        'Natural granule litter.', 90),
+
+       ('Jungle Cat Scratching Post', 159.0, NULL, false, 'cat', 'Cat Toys & Accessories',
+        'https://cdn.akakce.com/x/pugalo/pugalo-90-cm-catnipli-buyuk-tahtasi.jpg', '90 cm durable scratching post.',
+        40),
+
+       ('Petty Cat Scratching Tree', 399.0, 449.0, false, 'cat', 'Cat Toys & Accessories',
+        'https://m.media-amazon.com/images/I/713P4j9-CpL._UF1000,1000_QL80_.jpg', 'Large scratching area.', 20),
+
+       ('Jingle Mouse Cat Toy', 25.0, NULL, false, 'cat', 'Cat Toys & Accessories',
+        'https://cdn03.ciceksepeti.com/cicek/kcm55531736-1/L/pawise-zilli-kece-fare-kedi-oyuncagi-kcm55531736-1-231844f7688b4f48a752d7a6baa266a5.jpg',
+        'Interactive toy.', 100),
+
+       ('Feathered Cat Toy', 39.0, NULL, false, 'cat', 'Cat Toys & Accessories',
+        'https://cdn03.ciceksepeti.com/cicek/kcm55351561-1/L/kedi-oyuncagi-tuylu-kedi-oyuncak-vantuzlu-kedi-fare-yakalama-kcm55351561-1-68b1351c0ee14c53a0d2ccb5aa5d5107.jpg',
+        'Cat favorite.', 80),
+
+       ('LED Light Cat Ball', 49.0, 59.0, false, 'cat', 'Cat Toys & Accessories',
+        'https://m.media-amazon.com/images/I/71vvAwH93+L.jpg', 'Interactive toy.', 60);
+
+
+
+-- 🐶 DOG CATEGORY (14 Products)
+-- Selected for Showcase: Chest Harness (set to TRUE)
+
+INSERT INTO products (name, price, old_price, is_discounted, category, subcategory, image_url, description, stock)
+
+VALUES ('Dog Chow Adult Dog Food 15kg', 849.0, 899.0, false, 'dog', 'Adult Dog Food',
+        'https://productimages.hepsiburada.net/s/226/375-375/110000206845396.jpg', 'Dry food for adult dogs.', 30),
+
+       ('Royal Canin Mini Puppy 4kg', 599.0, NULL, false, 'dog', 'Puppy Food',
+        'https://cdn.akakce.com/royal-canin/royal-canin-mini-junior-4-kg-kucuk-irk-yavru-z.jpg',
+        'Small breed puppy food.', 40),
+
+       ('ProPlan Sensitive 12kg', 899.0, 999.0, false, 'dog', 'Adult Dog Food',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwp51_YqzZ6zNIpk__FgTjQybFFcO_jAJ2Fg&s',
+        'For sensitive skin.', 25),
+
+       ('Acana Adult Dog Food 11kg', 1299.0, 1599.0, true, 'dog', 'Adult Dog Food',
+        'https://www.kolaymama.com/acana-heritage-light-fit-adult-dry-dog-food-114-kg-dry-dog-food-acana-46307-51-B.jpg',
+        'Grain-free dog food.', 20),
+
+       ('N&D Low Grain Dog 2.5kg', 479.0, NULL, false, 'dog', 'Adult Dog Food',
+        'https://static.ticimax.cloud/cdn-cgi/image/width=-,quality=85/71782/uploads/urunresimleri/buyuk/nd-dog-ocean-low-grain-adult-mini-mori-3-42e8.jpg',
+        'Low grain food.', 35),
+
+       ('Pedigree Treats x7', 32.0, NULL, false, 'dog', 'Dog Treats',
+        'https://images.migrosone.com/sanalmarket/product/41031039/41031039_1-989ceb-1650x1650.jpg',
+        'Ideal for training.', 100),
+
+       ('Jungle Soft Snack 90g', 28.0, 35.0, false, 'dog', 'Dog Treats',
+        'https://cdn.akakce.com/z/jungle/jungle-90-gr-kopek-et-ezmesi.jpg', 'Soft snack.', 90),
+
+       ('Mamedog Crunchy Treats', 39.0, NULL, false, 'dog', 'Dog Treats',
+        'https://www.nutro.com/cdn-cgi/image/width=600,height=600,f=auto,quality=90/sites/g/files/fnmzdf2471/files/migrate-product-files/images/at5hslsce68lrym9gnvi.png',
+        'Economic reward.', 110),
+
+       ('Walking Leash – Large', 99.0, NULL, false, 'dog', 'Dog Leash',
+        'https://cdn.dsmcdn.com/mnresize/420/620/ty1710/prod/QC_ENRICHMENT/20250715/18/0ab1cbcc-ab2f-3338-a146-14a826056004/1_org_zoom.jpg',
+        'Sturdy leash for large breeds.', 50),
+
+       ('Chest Harness – Medium', 129.0, 159.0, true, 'dog', 'Dog Leash',
+        'https://www.evcilal.com/shop/ar/09/myassets/products/566/sll301-gogus-tasmasi-m-55-65cm-103657-jpg.jpeg?revision=1697143329',
+        'Adjustable chest harness.', 40),
+
+       ('Dog Dental Rope Toy x3', 49.0, NULL, false, 'dog', 'Dog Toy',
+        'https://m.media-amazon.com/images/I/61Ob0--lLLL.jpg', 'Supports oral health. 3 pieces.', 60),
+
+       ('Squeaky Toy', 35.0, NULL, false, 'dog', 'Dog Toy',
+        'https://productimages.hepsiburada.net/s/777/375-375/110000721195796.jpg', 'Cute squeaky toy.', 70),
+
+       ('Tennis Ball 3-Pack', 40.0, 49.0, false, 'dog', 'Dog Toy',
+        'https://www.kolaymama.com/gigwi-6118-ball-tenis-topu-kopek-oyuncagi-3-lu-paket-6-cm-kopek-oyuncaklari-gigwi-85989-21-O.jpg',
+        'Durable tennis balls.', 80),
+
+       ('Multivitamin Dog Vitamin', 89.0, NULL, false, 'dog', 'Dog Care',
+        'https://www.kolaymama.com/bio-pet-active-vitalidog-kopekler-icin-multivitamin-75-gr-150-tablet-multivitamin-bio-pet-active-15103-33-B.jpg',
+        'Balanced vitamin support.', 100);
+
+
+-- 🐦 BIRD PRODUCTS (6 pieces)
+
+-- Selected for Showcase: Parrot Food (set to TRUE)
+INSERT INTO products (name, price, old_price, is_discounted, category, subcategory, image_url, description, stock)
+
+VALUES ('Budgie Food 1kg', 45.0, NULL, false, 'bird', 'Bird Food',
+        'https://cdn.cimri.io/image/1000x1000/gold-wings-premium-muhabbet-kusu-1-kg-kus-yemi_604310615.jpg',
+        'Mixed food for budgies.', 100),
+
+       ('Canary Food 750g', 39.0, NULL, false, 'bird', 'Bird Food',
+        'https://cdn.cimri.io/image/1000x1000/beaks-karisik-750-gr-kanarya-yemi_172557406.jpg',
+        'Special food mix for canaries.', 80),
+
+       ('Parrot Food 1kg', 69.0, 79.0, true, 'bird', 'Bird Food',
+        'https://www.ozelyem.com/gardenmix-platin-paraket-yemi-1-kilo-papagan-paraket-yemleri-garden-mix-5691-44-B.jpg',
+        'For large parrot species.', 60),
+
+       ('Mineral Block Bird Vitamin', 19.0, NULL, false, 'bird', 'Bird Care',
+        'https://cdn.dsmcdn.com/mnresize/420/620/ty134/product/media/images/20210617/10/101751491/189876559/1/1_org_zoom.jpg',
+        'Calcium reinforced mineral block.', 150),
+
+       ('Bird Swing Toy', 25.0, NULL, false, 'bird', 'Bird Toy',
+        'https://cdn.dsmcdn.com/ty69/product/media/images/20210214/21/62354850/60531706/1/1_org_zoom.jpg',
+        'Fun bird toy.', 90),
+
+       ('Wooden Bird Perch', 29.0, NULL, false, 'bird', 'Cage Accessory',
+        'https://productimages.hepsiburada.net/s/1/375-375/9525721923634.jpg', 'Inside cage accessory.', 100);
+
+-- 🐠 FISH PRODUCTS (6 pieces)
+
+INSERT INTO products (name, price, old_price, is_discounted, category, subcategory, image_url, description, stock)
+
+VALUES ('Tetra Fish Food 250ml', 55.0, 65.0, false, 'fish', 'Fish Food',
+        'https://www.ozelyem.com/tetra-pro-energy-cips-balik-yemi-250-ml-cips-balik-yemleri-tetra-6758-30-B.jpg',
+        'Food for freshwater fish.', 100),
+
+       ('JBL Fish Food 125ml', 49.0, NULL, false, 'fish', 'Fish Food',
+        'https://www.jbl.de/images/container/w970_h970/78219.png', 'Vitamin enriched food.', 80),
+
+       ('Omega One Goldfish Food', 59.0, NULL, false, 'fish', 'Fish Food',
+        'https://productimages.hepsiburada.net/s/216/375-375/110000194269037.jpg', 'Goldfish food.', 70),
+
+       ('Aquarium Ceramic Decor', 85.0, NULL, false, 'fish', 'Aquarium Decor',
+        'https://ae01.alicdn.com/kf/S87e0cd6521f142e6b96844e547f3f5b34.jpg_960x960.jpg', 'Natural looking decor.', 40),
+
+       ('Live Plant Aquarium Decor', 95.0, 109.0, false, 'fish', 'Aquarium Decor',
+        'https://cdn.dsmcdn.com/mnresize/420/620/ty1237/product/media/images/prod/SPM/PIM/20240402/01/df12166f-4e75-3518-973f-d482bb1f97d3/1_org_zoom.jpg',
+        'Real plant appearance.', 30),
+
+       ('Water Conditioner 250ml', 39.0, NULL, false, 'fish', 'Aquarium Care',
+        'https://www.ozelyem.com/reeflowers-effective-conditioner-250-ml-su-duzenleyici-su-duzenleyiciler-reeflowers-543-49-B.jpg',
+        'Aquarium water conditioner.', 120);
+
+-- 🐹 RODENT — 8 pieces
+
+INSERT INTO products (name, price, old_price, is_discounted, category, subcategory, image_url, description, stock)
+
+VALUES ('Hamster Food 1kg', 35.0, NULL, false, 'rodent', 'Rodent Food',
+        'https://static.ticimax.cloud/14166/uploads/urunresimleri/buyuk/garden-mix-platin-hemster-yemi-1-kg-ea-54e.jpg',
+        'Complete food for hamsters.', 80),
+
+       ('Guinea Pig Food 1kg', 49.0, NULL, false, 'rodent', 'Rodent Food',
+        'https://www.kolaymama.com/garden-mix-platin-ginepig-yemi-1000-gr-yemler-garden-mix-41046-15-B.jpg',
+        'Vitamin supported food.', 70),
+
+       ('Rabbit Food 1kg', 39.0, NULL, false, 'rodent', 'Rodent Food',
+        'https://static.ticimax.cloud/14166/uploads/urunresimleri/buyuk/garden-mix-platin-tavsan-yemi-1-kg-f207.jpg',
+        'Special food for rabbits.', 90),
+
+       ('Hamster Running Ball', 69.0, 99.0, true, 'rodent', 'Rodent Toy',
+        'https://m.media-amazon.com/images/I/51nK0Sdb8XL.jpg', 'Running ball for exercise.', 50),
+
+       ('Small Cage Wheel', 89.0, NULL, false, 'rodent', 'Rodent Toy',
+        'https://cdn03.ciceksepeti.com/cicek/kcm78631528-1/L/carno-hamster-kafes-carki-mavi-17.5-cm-kcm78631528-1-a2982851efc844f5bde5467ae03949ea.jpg',
+        'Noiseless spinning wheel.', 40),
+
+       ('Rodent Wood Shavings 2kg', 45.0, 49.0, false, 'rodent', 'Cage Accessory',
+        'https://m.media-amazon.com/images/I/71aHx1UY3WL._AC_UF1000,1000_QL80_.jpg', 'Natural pine shavings.', 100),
+
+       ('Premium Shavings 3kg', 59.0, NULL, false, 'rodent', 'Cage Accessory',
+        'https://cdn03.ciceksepeti.com/cicek/kcm42176909-1/XL/talas-tozu-3-kg-kcm42176909-1-ca2c0e5f3383420c9f5b4c6570db0bb2.jpg',
+        'Odor-trapping shavings.', 80),
+
+       ('Rodent Water Bottle', 35.0, NULL, false, 'rodent', 'Cage Accessory',
+        'https://m.media-amazon.com/images/I/71UewuLrZcL._AC_UF1000,1000_QL80_.jpg', 'Water bottle for cage.', 120);
+
+-- 🦎 REPTILE — 8 pieces
+
+-- Selected for Showcase: UVB Lamp (set to TRUE)
+INSERT INTO products (name, price, old_price, is_discounted, category, subcategory, image_url, description, stock)
+
+VALUES ('Reptile Granule Food 250g', 89.0, NULL, false, 'reptile', 'Reptile Food',
+        'https://m.media-amazon.com/images/I/71PsV4SxM2L._UF1000,1000_QL80_.jpg', 'Food for turtles and iguanas.', 60),
+
+       ('Turtle Food 150g', 45.0, 60.0, true, 'reptile', 'Reptile Food',
+        'https://static.ticimax.cloud/cdn-cgi/image/width=-,quality=99/14166/uploads/urunresimleri/buyuk/tetra-reptomin-stick-kaplumbaga-yemi-1-l-2c39.jpg',
+        'Water turtle food.', 80),
+
+       ('UVB 5.0 Reptile Lamp', 199.0, NULL, false, 'reptile', 'Terrarium Equipment',
+        'https://m.media-amazon.com/images/I/71Fn6KYd+JL.jpg', 'UVB light for D3 synthesis.', 30),
+
+       ('UVA Heat Lamp', 149.0, NULL, false, 'reptile', 'Terrarium Equipment',
+        'https://m.media-amazon.com/images/I/811KRcOgAHL._UF1000,1000_QL80_.jpg', 'Terrarium heating lamp.', 40),
+
+       ('Terrarium Humidifier', 129.0, NULL, false, 'reptile', 'Terrarium Equipment',
+        'https://productimages.hepsiburada.net/s/477/375-375/110000520097395.jpg', 'Humidity balancing device.', 25),
+
+       ('Reptile Water Cleaner 250ml', 59.0, NULL, false, 'reptile', 'Reptile Care',
+        'https://cdn.myikas.com/images/d70af965-261f-4405-a1d9-1f58e6784a19/24efe922-a1af-4d4b-beb4-2667f09994d3/image_1080.jpg',
+        'Water turtle care product.', 50),
+
+       ('Natural Rock Terrarium Decor', 109.0, NULL, false, 'reptile', 'Terrarium Decor',
+        'https://m.media-amazon.com/images/I/71k0Lu96BYL.jpg', 'Natural stone appearance.', 20),
+
+       ('Mini Cave Decor', 89.0, NULL, false, 'reptile', 'Terrarium Decor',
+        'https://productimages.hepsiburada.net/s/157/375-375/110000114290772.jpg', 'Provides a hiding area.', 30);
+
+
+SELECT COUNT(*)
+FROM products;
+
+-- check if stock decreased
+SELECT name, stock
+
+FROM products;
+
+-- drop database tarpetsdb;

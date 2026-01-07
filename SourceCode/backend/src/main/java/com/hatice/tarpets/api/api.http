@@ -1,0 +1,629 @@
+### 🐱 CAT CATEGORY - 10 PRODUCTS
+
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Premium Kitten Food (Chicken)",
+  "description": "High-protein special food with milk effect for healthy growth of kittens.",
+  "price": 450.0,
+  "oldPrice": 580.0,
+  "isDiscounted": true,
+  "category": "cat",
+  "subcategory": "Kitten Food",
+  "imageUrl": "https://images.pexels.com/photos/2071873/pexels-photo-2071873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 50,
+  "petAgeMin": 0,
+  "petAgeMax": 1
+}
+
+### 2. [CAT] Adult Salmon Food
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Gourmet Salmon Adult Cat Food 15kg",
+  "description": "Omega-3 rich salmon flavor that shines the coat and protects skin health.",
+  "price": 1250.0,
+  "oldPrice": 1250.0,
+  "isDiscounted": false,
+  "category": "cat",
+  "subcategory": "Adult Cat Food",
+  "imageUrl": "https://images.pexels.com/photos/1170986/pexels-photo-1170986.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 40,
+  "petAgeMin": 1,
+  "petAgeMax": 7
+}
+
+### 3. [CAT] Sterilised Cat Food (DISCOUNTED)
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Diet & Sterilised Cat Food",
+  "description": "Low-grain diet food providing weight control and supporting kidney health.",
+  "price": 520.0,
+  "oldPrice": 700.0,
+  "isDiscounted": true,
+  "category": "cat",
+  "subcategory": "Sterilised Cat Food",
+  "imageUrl": "https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 60,
+  "petAgeMin": 1,
+  "petAgeMax": 10
+}
+
+### 4. [CAT] Canned Wet Food
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Beef Wet Food (Pack of 12)",
+  "description": "Canned wet food with chunks of beef in jelly that cats love.",
+  "price": 180.0,
+  "oldPrice": 180.0,
+  "isDiscounted": false,
+  "category": "cat",
+  "subcategory": "Canned Cat Food",
+  "imageUrl": "https://images.pexels.com/photos/1741205/pexels-photo-1741205.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 100,
+  "petAgeMin": 0,
+  "petAgeMax": 20
+}
+
+### 5. [CAT] Treat Stick
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Crunchy Cheese Cat Treat Stick",
+  "description": "Delicious treat with a soft inside and crunchy outside, used in cat training.",
+  "price": 35.0,
+  "oldPrice": 35.0,
+  "isDiscounted": false,
+  "category": "cat",
+  "subcategory": "Cat Treats",
+  "imageUrl": "https://images.pexels.com/photos/2558605/pexels-photo-2558605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 200,
+  "petAgeMin": 0,
+  "petAgeMax": 20
+}
+
+### 6. [CAT] Cat Litter (DISCOUNTED)
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Active Carbon Cat Litter 10L",
+  "description": "Maximum clumping and odor trapping feature. Does not stick to paws.",
+  "price": 399.0,
+  "oldPrice": 550.0,
+  "isDiscounted": true,
+  "category": "cat",
+  "subcategory": "Cat Litter",
+  "imageUrl": "https://images.unsplash.com/photo-1513245543132-31f507417b26?q=80&w=1000&auto=format&fit=crop",
+  "stock": 80,
+  "petAgeMin": 0,
+  "petAgeMax": 20
+}
+
+### 7. [CAT] Tunnel Toy
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Colorful Cat Play Tunnel",
+  "description": "Crinkly tunnel for your cat to play hide and seek and burn energy.",
+  "price": 120.0,
+  "oldPrice": 120.0,
+  "isDiscounted": false,
+  "category": "cat",
+  "subcategory": "Cat Toys & Accessories",
+  "imageUrl": "https://images.pexels.com/photos/38867/pexels-photo-38867.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 30,
+  "petAgeMin": 0,
+  "petAgeMax": 20
+}
+
+### 8. [CAT] Scratching Post
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Natural Rope Cat Scratching Tower",
+  "description": "Ideal for your cat's nail health and protecting your furniture.",
+  "price": 250.0,
+  "oldPrice": 300.0,
+  "isDiscounted": true,
+  "category": "cat",
+  "subcategory": "Cat Toys & Accessories",
+  "imageUrl": "https://images.pexels.com/photos/731022/pexels-photo-731022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 45,
+  "petAgeMin": 0,
+  "petAgeMax": 20
+}
+
+### 9. [CAT] Cat Bed
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Soft Plush Cat Bed",
+  "description": "Orthopedic bed for your cat to sleep comfortably and warm.",
+  "price": 400.0,
+  "oldPrice": 400.0,
+  "isDiscounted": false,
+  "category": "cat",
+  "subcategory": "Cat Health & Care",
+  "imageUrl": "https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 20,
+  "petAgeMin": 0,
+  "petAgeMax": 20
+}
+
+### 10. [CAT] Carrier Bag
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Astronaut Cat Carrier Bag",
+  "description": "Comfortable travel bag with transparent window and ventilation.",
+  "price": 600.0,
+  "oldPrice": 600.0,
+  "isDiscounted": false,
+  "category": "cat",
+  "subcategory": "Cat Toys & Accessories",
+  "imageUrl": "https://images.pexels.com/photos/8434641/pexels-photo-8434641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 15,
+  "petAgeMin": 0,
+  "petAgeMax": 20
+}
+
+
+### 🐶 DOG CATEGORY - 8 PRODUCTS
+
+### 11. [DOG] Puppy Food (DISCOUNTED)
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Puppy Starter Food",
+  "description": "Easy-to-digest, energy-packed dry food for small breed puppies.",
+  "price": 600.0,
+  "oldPrice": 750.0,
+  "isDiscounted": true,
+  "category": "dog",
+  "subcategory": "Puppy Food",
+  "imageUrl": "https://images.pexels.com/photos/3687770/pexels-photo-3687770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 25,
+  "petAgeMin": 0,
+  "petAgeMax": 1
+}
+
+### 12. [DOG] Adult Food
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Lamb & Grain-Free Dog Food 15kg",
+  "description": "Low-grain, high-protein premium adult food with lamb.",
+  "price": 1800.0,
+  "oldPrice": 1800.0,
+  "isDiscounted": false,
+  "category": "dog",
+  "subcategory": "Adult Dog Food",
+  "imageUrl": "https://images.pexels.com/photos/58997/pexels-photo-58997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 15,
+  "petAgeMin": 1,
+  "petAgeMax": 10
+}
+
+### 13. [DOG] Canned Food
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Lamb Wet Dog Food",
+  "description": "Complementary nutritional wet food source for dogs.",
+  "price": 60.0,
+  "oldPrice": 60.0,
+  "isDiscounted": false,
+  "category": "dog",
+  "subcategory": "Canned Dog Food",
+  "imageUrl": "https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 50,
+  "petAgeMin": 0,
+  "petAgeMax": 15
+}
+
+### 14. [DOG] Treat Bone (DISCOUNTED)
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Natural Chewing Bone (Large)",
+  "description": "Large bone supporting dental health and preventing plaque formation.",
+  "price": 110.0,
+  "oldPrice": 150.0,
+  "isDiscounted": true,
+  "category": "dog",
+  "subcategory": "Dog Treats",
+  "imageUrl": "https://images.pexels.com/photos/59523/pexels-photo-59523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 80,
+  "petAgeMin": 0,
+  "petAgeMax": 15
+}
+
+### 15. [DOG] Rope Toy
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Durable Rope Dog Toy",
+  "description": "Sturdy tooth-friendly rope toy for tug-of-war games.",
+  "price": 150.0,
+  "oldPrice": 150.0,
+  "isDiscounted": false,
+  "category": "dog",
+  "subcategory": "Dog Toys",
+  "imageUrl": "https://images.pexels.com/photos/1498925/pexels-photo-1498925.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 30,
+  "petAgeMin": 0,
+  "petAgeMax": 15
+}
+
+### 16. [DOG] Leash
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Automatic Retractable Leash 5m",
+  "description": "Red leash with locking mechanism and ergonomic grip.",
+  "price": 350.0,
+  "oldPrice": 350.0,
+  "isDiscounted": false,
+  "category": "dog",
+  "subcategory": "Dog Accessories",
+  "imageUrl": "https://images.pexels.com/photos/1254140/pexels-photo-1254140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 20,
+  "petAgeMin": 0,
+  "petAgeMax": 20
+}
+
+### 17. [DOG] Dog Bed
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Large Breed Dog Bed",
+  "description": "Wide and comfortable bed with washable cover.",
+  "price": 950.0,
+  "oldPrice": 1200.0,
+  "isDiscounted": true,
+  "category": "dog",
+  "subcategory": "Dog Health & Care",
+  "imageUrl": "https://images.pexels.com/photos/2023384/pexels-photo-2023384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 10,
+  "petAgeMin": 0,
+  "petAgeMax": 20
+}
+
+### 18. [DOG] Shampoo
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Sensitive Skin Dog Shampoo",
+  "description": "Natural anti-itch shampoo with aloe vera extract.",
+  "price": 180.0,
+  "oldPrice": 180.0,
+  "isDiscounted": false,
+  "category": "dog",
+  "subcategory": "Dog Health & Care",
+  "imageUrl": "https://images.pexels.com/photos/4587995/pexels-photo-4587995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 40,
+  "petAgeMin": 0,
+  "petAgeMax": 20
+}
+
+
+### 🐦 BIRD CATEGORY - 5 PRODUCTS
+
+### 19. [BIRD] Food (DISCOUNTED)
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Mixed Budgie Food 500g",
+  "description": "Vitamin-enriched food fortified with special seeds.",
+  "price": 60.0,
+  "oldPrice": 85.0,
+  "isDiscounted": true,
+  "category": "bird",
+  "subcategory": "Bird Food",
+  "imageUrl": "https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 100,
+  "petAgeMin": 0,
+  "petAgeMax": 10
+}
+
+### 20. [BIRD] Honey Cracker
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Honey Cracker 3-Pack",
+  "description": "Energy-packed cracker that birds love, can be hung in the cage.",
+  "price": 30.0,
+  "oldPrice": 30.0,
+  "isDiscounted": false,
+  "category": "bird",
+  "subcategory": "Bird Treats",
+  "imageUrl": "https://images.pexels.com/photos/416179/pexels-photo-416179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 150,
+  "petAgeMin": 0,
+  "petAgeMax": 10
+}
+
+### 21. [BIRD] Perch
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Natural Wooden Perch",
+  "description": "Natural branch for bird foot health and nail filing.",
+  "price": 40.0,
+  "oldPrice": 40.0,
+  "isDiscounted": false,
+  "category": "bird",
+  "subcategory": "Cage Accessories",
+  "imageUrl": "https://images.pexels.com/photos/2317904/pexels-photo-2317904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 50,
+  "petAgeMin": 0,
+  "petAgeMax": 10
+}
+
+### 22. [BIRD] Cage
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Brass Plated Bird Cage",
+  "description": "Large volume cage with easy-to-clean bottom tray.",
+  "price": 750.0,
+  "oldPrice": 750.0,
+  "isDiscounted": false,
+  "category": "bird",
+  "subcategory": "Cage Accessories",
+  "imageUrl": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 10,
+  "petAgeMin": 0,
+  "petAgeMax": 10
+}
+
+### 23. [BIRD] Cuttlebone
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Cuttlebone (Beak Stone)",
+  "description": "Natural beak stone meeting calcium needs.",
+  "price": 25.0,
+  "oldPrice": 25.0,
+  "isDiscounted": false,
+  "category": "bird",
+  "subcategory": "Bird Food",
+  "imageUrl": "https://images.pexels.com/photos/326012/pexels-photo-326012.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 200,
+  "petAgeMin": 0,
+  "petAgeMax": 10
+}
+
+
+### 🐠 FISH CATEGORY - 5 PRODUCTS
+
+### 24. [FISH] Food (DISCOUNTED)
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Protein Fish Food (Granules)",
+  "description": "Complete color-enhancing food for all aquarium fish.",
+  "price": 120.0,
+  "oldPrice": 150.0,
+  "isDiscounted": true,
+  "category": "fish",
+  "subcategory": "Fish Food",
+  "imageUrl": "https://images.pexels.com/photos/128756/pexels-photo-128756.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 60,
+  "petAgeMin": 0,
+  "petAgeMax": 5
+}
+
+### 25. [FISH] Decor
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Natural Aquarium Rock",
+  "description": "Non-leaching decor creating hiding areas for fish.",
+  "price": 250.0,
+  "oldPrice": 250.0,
+  "isDiscounted": false,
+  "category": "fish",
+  "subcategory": "Aquarium Equipment",
+  "imageUrl": "https://images.pexels.com/photos/325044/pexels-photo-325044.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 20,
+  "petAgeMin": 0,
+  "petAgeMax": 10
+}
+
+### 26. [FISH] Plant
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Artificial Aquarium Plant",
+  "description": "Lifelike plant that fish enjoy swimming around.",
+  "price": 75.0,
+  "oldPrice": 75.0,
+  "isDiscounted": false,
+  "category": "fish",
+  "subcategory": "Aquarium Equipment",
+  "imageUrl": "https://images.pexels.com/photos/2832456/pexels-photo-2832456.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 50,
+  "petAgeMin": 0,
+  "petAgeMax": 10
+}
+
+### 27. [FISH] Filter
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Aquarium Internal Filter",
+  "description": "Powerful motor filter that operates quietly and clarifies water.",
+  "price": 350.0,
+  "oldPrice": 350.0,
+  "isDiscounted": false,
+  "category": "fish",
+  "subcategory": "Aquarium Equipment",
+  "imageUrl": "https://images.pexels.com/photos/1350560/pexels-photo-1350560.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 15,
+  "petAgeMin": 0,
+  "petAgeMax": 10
+}
+
+### 28. [FISH] Net
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Aquarium Fish Net",
+  "description": "Soft-textured net for catching fish without harming them.",
+  "price": 40.0,
+  "oldPrice": 40.0,
+  "isDiscounted": false,
+  "category": "fish",
+  "subcategory": "Aquarium Equipment",
+  "imageUrl": "https://images.pexels.com/photos/2156311/pexels-photo-2156311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 80,
+  "petAgeMin": 0,
+  "petAgeMax": 10
+}
+
+
+### 🐹 RODENT CATEGORY
+
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Gold Wings Premium Hamster Food 500g",
+  "description": "Complete energy food with peanuts and seeds for hamsters and guinea pigs.",
+  "price": 45.0,
+  "oldPrice": 60.0,
+  "isDiscounted": true,
+  "category": "rodent",
+  "subcategory": "Rodent Food",
+  "imageUrl": "https://images.pexels.com/photos/4583060/pexels-photo-4583060.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 80,
+  "petAgeMin": 0,
+  "petAgeMax": 5
+}
+
+### 30. [RODENT] Wood Shavings
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Natural Pine Shavings 15L",
+  "description": "Dust-free, highly absorbent rodent bedding material.",
+  "price": 35.0,
+  "oldPrice": 35.0,
+  "isDiscounted": false,
+  "category": "rodent",
+  "subcategory": "Cage & Care",
+  "imageUrl": "https://images.pexels.com/photos/326058/pexels-photo-326058.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 100,
+  "petAgeMin": 0,
+  "petAgeMax": 10
+}
+
+### 31. [RODENT] Wheel
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Silent Hamster Wheel",
+  "description": "Exercise wheel that doesn't make noise at night, allowing rodents to burn energy.",
+  "price": 90.0,
+  "oldPrice": 120.0,
+  "isDiscounted": true,
+  "category": "rodent",
+  "subcategory": "Rodent Toys",
+  "imageUrl": "https://images.pexels.com/photos/4588052/pexels-photo-4588052.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 40,
+  "petAgeMin": 0,
+  "petAgeMax": 5
+}
+
+
+### 🐢 REPTILE CATEGORY
+
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Tetra Reptomin Turtle Food",
+  "description": "Calcium-supported stick food for water turtles.",
+  "price": 85.0,
+  "oldPrice": 85.0,
+  "isDiscounted": false,
+  "category": "reptile",
+  "subcategory": "Reptile Food",
+  "imageUrl": "https://images.pexels.com/photos/8434625/pexels-photo-8434625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 60,
+  "petAgeMin": 0,
+  "petAgeMax": 50
+}
+
+### 33. [REPTILE] Terrarium Heater
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Terrarium Heating Lamp (UVB)",
+  "description": "Lamp meeting the sunlight needs of reptiles and supporting bone development.",
+  "price": 450.0,
+  "oldPrice": 600.0,
+  "isDiscounted": true,
+  "category": "reptile",
+  "subcategory": "Terrarium Equipment",
+  "imageUrl": "https://images.pexels.com/photos/927497/pexels-photo-927497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "stock": 20,
+  "petAgeMin": 0,
+  "petAgeMax": 100
+}
+
+
+### Get All Products
+GET http://localhost:8080/api/products
+
+### Get Discounted Products Only
+GET http://localhost:8080/api/products/discounted
+
+### Get All Users (ADMIN)
+GET http://localhost:8080/api/admin/users
+
+### Create Order Test
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "totalPrice": 10,
+  "items": [
+    { "productId": 1, "quantity": 1, "price": 10 }
+  ]
+}
